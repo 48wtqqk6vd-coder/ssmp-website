@@ -283,7 +283,7 @@
         .scroll-reveal {
             opacity: 0;
             transform: translateY(40px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            transition: opacity 0.4s ease, transform 0.4s ease;
         }
 
         .scroll-reveal.revealed {
@@ -317,10 +317,11 @@
 
         /* Staggered Animation Delays */
         .scroll-reveal:nth-child(1) { transition-delay: 0s; }
-        .scroll-reveal:nth-child(2) { transition-delay: 0.1s; }
-        .scroll-reveal:nth-child(3) { transition-delay: 0.2s; }
-        .scroll-reveal:nth-child(4) { transition-delay: 0.3s; }
-        .scroll-reveal:nth-child(5) { transition-delay: 0.4s; }
+        .scroll-reveal:nth-child(2) { transition-delay: 0.05s; }
+        .scroll-reveal:nth-child(3) { transition-delay: 0.1s; }
+        .scroll-reveal:nth-child(4) { transition-delay: 0.15s; }
+        .scroll-reveal:nth-child(5) { transition-delay: 0.2s; }
+        .scroll-reveal:nth-child(6) { transition-delay: 0.25s; }
 
         /* Parallax Background */
         .bg-animation {
@@ -476,6 +477,117 @@
             .heart-display {
                 gap: 0.15rem;
             }
+        }
+
+        /* Worldborder Display */
+        .worldborder-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .border-stage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .border-label {
+            font-size: 0.75em;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .border-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #4ade80;
+            text-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+        }
+
+        .border-unit {
+            font-size: 0.7em;
+            color: #666;
+        }
+
+        .border-arrow {
+            font-size: 1.5em;
+            color: #4ade80;
+            animation: pulse-arrow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-arrow {
+            0%, 100% { opacity: 0.5; transform: translateX(0); }
+            50% { opacity: 1; transform: translateX(5px); }
+        }
+
+        /* Whitelist Steps Display */
+        .whitelist-steps {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            margin: 15px 0;
+        }
+
+        .whitelist-step {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            animation: step-glow 2s ease-in-out infinite;
+        }
+
+        .whitelist-step:nth-child(1) { animation-delay: 0s; }
+        .whitelist-step:nth-child(3) { animation-delay: 0.5s; }
+        .whitelist-step:nth-child(5) { animation-delay: 1s; }
+
+        @keyframes step-glow {
+            0%, 100% { border-color: rgba(255, 255, 255, 0.1); }
+            50% { border-color: rgba(114, 137, 218, 0.6); box-shadow: 0 0 15px rgba(114, 137, 218, 0.3); }
+        }
+
+        .step-icon {
+            font-size: 1.3em;
+        }
+
+        .step-text {
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #7289da;
+        }
+
+        .whitelist-arrow {
+            font-size: 1.2em;
+            color: #7289da;
+            animation: bounce-arrow 1s ease-in-out infinite;
+        }
+
+        @keyframes bounce-arrow {
+            0%, 100% { transform: translateY(0); opacity: 0.5; }
+            50% { transform: translateY(3px); opacity: 1; }
+        }
+
+        .whitelist-step.clickable {
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whitelist-step.clickable:hover {
+            background: rgba(114, 137, 218, 0.3);
+            border-color: #7289da;
+            transform: scale(1.05);
         }
 
         /* News Section */
@@ -2619,19 +2731,19 @@
         <h2 class="section-title" data-de="⚔️ Server Regeln ⚔️" data-en="⚔️ Server Rules ⚔️">⚔️ Server Regeln ⚔️</h2>
         
         <div class="info-grid">
-            <div class="info-card">
+            <div class="info-card scroll-reveal">
                 <div class="info-icon">💀</div>
                 <h3 data-de="Kein Tod-Ban!" data-en="No Death Ban!">Kein Tod-Ban!</h3>
                 <p data-de="Im Gegensatz zu anderen Servern wirst du bei uns NICHT gebannt, wenn du stirbst. Du verlierst nur ein Herz!" data-en="Unlike other servers, you will NOT be banned when you die. You only lose a heart!">Im Gegensatz zu anderen Servern wirst du bei uns NICHT gebannt, wenn du stirbst. Du verlierst nur ein Herz!</p>
             </div>
 
-            <div class="info-card">
+            <div class="info-card scroll-reveal">
                 <div class="info-icon">❤️</div>
                 <h3 data-de="Herzen Stehlen" data-en="Steal Hearts">Herzen Stehlen</h3>
                 <p data-de="Töte einen Spieler und stiehl ihm ein Herz! Du bekommst +1 ❤️, dein Opfer verliert -1 ❤️" data-en="Kill a player and steal their heart! You get +1 ❤️, your victim loses -1 ❤️">Töte einen Spieler und stiehl ihm ein Herz! Du bekommst +1 ❤️, dein Opfer verliert -1 ❤️</p>
             </div>
 
-            <div class="info-card">
+            <div class="info-card scroll-reveal">
                 <div class="info-icon">🛡️</div>
                 <h3 data-de="Minimum Herzen" data-en="Minimum Hearts">Minimum Herzen</h3>
                 <div class="heart-display">
@@ -2649,7 +2761,7 @@
                 <p data-de="Du kannst nie unter 5 Herzen fallen. Selbst in deinen dunkelsten Momenten bleibst du am Leben!" data-en="You can never fall below 5 hearts. Even in your darkest moments, you stay alive!">Du kannst nie unter 5 Herzen fallen. Selbst in deinen dunkelsten Momenten bleibst du am Leben!</p>
             </div>
 
-            <div class="info-card">
+            <div class="info-card scroll-reveal">
                 <div class="info-icon">⚡</div>
                 <h3 data-de="Maximum Herzen" data-en="Maximum Hearts">Maximum Herzen</h3>
                 <div class="heart-display">
@@ -2677,6 +2789,46 @@
                     <span class="heart">❤️</span>
                 </div>
                 <p data-de="Sammle bis zu 20 Herzen und werde zum ultimativen Krieger auf dem Server!" data-en="Collect up to 20 hearts and become the ultimate warrior on the server!">Sammle bis zu 20 Herzen und werde zum ultimativen Krieger auf dem Server!</p>
+            </div>
+
+            <div class="info-card scroll-reveal">
+                <div class="info-icon">🌍</div>
+                <h3 data-de="Wachsende Welt" data-en="Expanding World">Wachsende Welt</h3>
+                <div class="worldborder-display">
+                    <div class="border-stage">
+                        <span class="border-label" data-de="Start" data-en="Start">Start</span>
+                        <span class="border-value">2.000</span>
+                        <span class="border-unit" data-de="Blöcke" data-en="Blocks">Blöcke</span>
+                    </div>
+                    <div class="border-arrow">→</div>
+                    <div class="border-stage">
+                        <span class="border-label" data-de="Tag 15" data-en="Day 15">Tag 15</span>
+                        <span class="border-value">15.000</span>
+                        <span class="border-unit" data-de="Blöcke" data-en="Blocks">Blöcke</span>
+                    </div>
+                </div>
+                <p data-de="Die Weltgrenze wächst täglich! Starte in einer kompakten Arena und erobere nach und nach neues Terrain." data-en="The world border grows daily! Start in a compact arena and gradually conquer new terrain.">Die Weltgrenze wächst täglich! Starte in einer kompakten Arena und erobere nach und nach neues Terrain.</p>
+            </div>
+
+            <div class="info-card scroll-reveal">
+                <div class="info-icon">🎫</div>
+                <h3 data-de="Whitelist Zugang" data-en="Whitelist Access">Whitelist Zugang</h3>
+                <div class="whitelist-steps">
+                    <a href="https://discord.gg/h26GgbTuVD" target="_blank" class="whitelist-step clickable">
+                        <span class="step-icon">💬</span>
+                        <span class="step-text" data-de="Discord beitreten" data-en="Join Discord">Discord beitreten</span>
+                    </a>
+                    <div class="whitelist-arrow">↓</div>
+                    <div class="whitelist-step">
+                        <span class="step-icon">🎫</span>
+                        <span class="step-text" data-de="Ticket erstellen" data-en="Create Ticket">Ticket erstellen</span>
+                    </div>
+                    <div class="whitelist-arrow">↓</div>
+                    <div class="whitelist-step">
+                        <span class="step-icon">✅</span>
+                        <span class="step-text" data-de="Losspielen!" data-en="Start playing!">Losspielen!</span>
+                    </div>
+                </div>
             </div>
         </div>
 
